@@ -1,0 +1,73 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(p8105.datasets)
+library(tidyverse)
+library(plotly)
+```
+
+```{r data_import_clean, include=FALSE}
+data("rest_inspec")
+
+clean_df =
+  rest_inspec %>% 
+  select(dba, boro, zipcode, score, grade) %>% 
+  filter(
+    !boro == "Missing",
+    !grade == "Not Yet Graded",
+    score %in% 0:151
+  ) %>% 
+  drop_na(grade, score)
+
+final_df = sample_n(clean_df, 7000)
+```
+
+```{r skim_dataset, include=FALSE}
+skimr::skim(clean_df)
+skimr::skim(final_df)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A: Scatterplot -- Score and Grade
+
+```{r}
+final_df %>%
+  mutate(text_label = str_c("Name: ", dba, "\nZip Code: ", zipcode)) %>% 
+  plot_ly(x = ~grade, y = ~score, color = ~boro, text = ~text_label, alpha = .5, 
+          type = "scatter", mode = "markers", colors = "plasma")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B: Boxplot -- Boro and Score
+
+```{r}
+final_df %>% 
+  mutate(text_label = str_c("Name: ", dba , "\nZip Code: ", zipcode, "\nGrade: ", grade)) %>% 
+  mutate(boro = fct_reorder(boro, score)) %>% 
+  plot_ly(y = ~score, x = ~boro, color = ~boro, text = ~text_label,
+          type = "box", colors = "inferno")
+```
+
+### Chart C: Bar Graph -- # Restaurants per Boro
+
+```{r}
+final_df %>% 
+  count(boro) %>% 
+  mutate(boro = fct_reorder(boro, n)) %>% 
+  plot_ly(
+    x = ~boro, y = ~n, color = ~boro,
+    type = "bar", colors = "magma"
+  )
+```
