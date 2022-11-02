@@ -1,0 +1,39 @@
+---
+title: "About Me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+<img src="images/Headshot.jpg" style="width:40%">
+
+## Education
+
+* **MPH, Epidemiology**, 
+*Columbia University* (Expected 2023)  
+*Certificate: Applied Biostatistics and Public Health Data Science*  
+Mailman Public Health Scholar Scholarship
+  
+* **B.A., Neurolinguistics**, 
+*University of Michigan, Ann Arbor (2014)*  
+Angell Scholar, LSA Scholarship
+
+## Experience
+
+* Project Manager, Eleanor and Lou Gehrig ALS Center  
+*Columbia University Irving Medical Center*  
+06/2021 - Current
+
+* Clinical Research Coordinator, Neurology  
+*Weill Cornell Medical Center, Women's Brain Initiative*  
+01/2020 - Current
+
+* Research Assistant, Brain & Mind Research Institute  
+*Weill Cornell Medical Center, Schiff Lab*  
+07/2019 - 01/2020
+  
+* Research Assistant, The Gertrude H. Sergievsky Center  
+*Columbia University Medical Center, Infectious Diseases*  
+10/2018 - 05/2019
+
