@@ -1,0 +1,15 @@
+---
+title: "Home"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Intro
+
+Hi! I'm Grace, a second-year MPH student at the Mailman School of Public Health. I have created this website for P8105 class.
+
+* For academic and professional experience, please go to [About Me](about.html).
+* For a flexdashboard I created using `plotly`, please go to [Dashboard](dashboard.html)
+

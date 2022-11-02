@@ -1,0 +1,16 @@
+name: "Grace's Website"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About Me"
+      href: about.html
+    - text: "Dashboard"
+      href: dashboard.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<gej2116@cumc.columbia.com>
+    - icon: fa-github fa-lg
+      href: http://github.com/jangrace/
+output:
+  html_document:
+    theme: simplex
